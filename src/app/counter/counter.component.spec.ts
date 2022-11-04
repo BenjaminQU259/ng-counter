@@ -36,12 +36,32 @@ describe('CounterComponent', () => {
   it('should subtract 1 when click subtract button', () => {
     // given
     component.count = 0;
-    const plusBtn = fixture.nativeElement.querySelector('[data-test="subtractBtn"]');
+    const subtractBtn = fixture.nativeElement.querySelector('[data-test="subtractBtn"]');
     // when
-    plusBtn.click();
+    subtractBtn.click();
     fixture.detectChanges();
     // then
     const displayCount = fixture.nativeElement.querySelector('[data-test="displayCount"]')
     expect(displayCount.textContent).toEqual('number: -1');
+  });
+
+  it('should hide subtract button when count number less than 0', () => {
+    // given
+    component.count = -1;
+    // when
+    fixture.detectChanges();
+    // then
+    const subtractBtn = fixture.nativeElement.querySelector('[data-test="subtractBtn"]')
+    expect(subtractBtn).toBeFalsy();
+  });
+
+  it('should hide plus button when count number greater than 10', () => {
+    // given
+    component.count = 11;
+    // when
+    fixture.detectChanges();
+    // then
+    const plusBtn = fixture.nativeElement.querySelector('[data-test="plusBtn"]')
+    expect(plusBtn).toBeFalsy();
   });
 });
