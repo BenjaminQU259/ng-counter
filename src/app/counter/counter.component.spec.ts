@@ -32,4 +32,16 @@ describe('CounterComponent', () => {
     const displayCount = fixture.nativeElement.querySelector('[data-test="displayCount"]')
     expect(displayCount.textContent).toEqual('number: 1');
   });
+
+  it('should subtract 1 when click subtract button', () => {
+    // given
+    component.count = 0;
+    const plusBtn = fixture.nativeElement.querySelector('[data-test="subtractBtn"]');
+    // when
+    plusBtn.click();
+    fixture.detectChanges();
+    // then
+    const displayCount = fixture.nativeElement.querySelector('[data-test="displayCount"]')
+    expect(displayCount.textContent).toEqual('number: -1');
+  });
 });
