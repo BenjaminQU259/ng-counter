@@ -1,0 +1,18 @@
+<p>counter-group works!</p>
+
+<button (click)="doCreateCounter()" nz-button nzType="primary">
+  Create Counter
+</button>
+
+<app-counter *ngFor="let counter of counters" [counter]="counter"></app-counter>
+
+<div>sum: {{ sumCounts() }}</div>
+
+<button
+  data-test="resetAllBtn"
+  (click)="doResetAll()"
+  nz-button
+  nzType="primary"
+>
+  Reset All
+</button>

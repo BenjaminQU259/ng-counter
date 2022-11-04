@@ -7,11 +7,11 @@
 <span
   data-test="displayCount"
   [ngClass]="{ green: !isGreaterOrEqualToZero(), red: !isLessOrEqualToTen() }"
-  >number: {{ count }}</span
+  >number: {{ counter.count }}</span
 >
 
 <ng-container *ngIf="isGreaterOrEqualToZero()">
   <button data-test="subtractBtn" (click)="decrease()">-</button>
 </ng-container>
 
-<button data-test="resetBtn" (click)="reset()">reset</button>
+<button data-test="resetBtn" (click)="reset()">Reset</button>

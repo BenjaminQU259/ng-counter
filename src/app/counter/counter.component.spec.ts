@@ -23,7 +23,7 @@ describe('CounterComponent', () => {
 
   it('should add 1 when click plus button', () => {
     // given
-    component.count = 0;
+    component.counter.count = 0;
     const plusBtn = fixture.nativeElement.querySelector('[data-test="plusBtn"]');
     // when
     plusBtn.click();
@@ -35,7 +35,7 @@ describe('CounterComponent', () => {
 
   it('should subtract 1 when click subtract button', () => {
     // given
-    component.count = 0;
+    component.counter.count = 0;
     const subtractBtn = fixture.nativeElement.querySelector('[data-test="subtractBtn"]');
     // when
     subtractBtn.click();
@@ -47,7 +47,7 @@ describe('CounterComponent', () => {
 
   it('should hide subtract button when count number less than 0', () => {
     // given
-    component.count = -1;
+    component.counter.count = -1;
     // when
     fixture.detectChanges();
     // then
@@ -57,7 +57,7 @@ describe('CounterComponent', () => {
 
   it('should hide plus button when count number greater than 10', () => {
     // given
-    component.count = 11;
+    component.counter.count = 11;
     // when
     fixture.detectChanges();
     // then
@@ -67,41 +67,41 @@ describe('CounterComponent', () => {
 
   it('should return false when count number less than 0', () => {
     // given
-    component.count = -1;
+    component.counter.count = -1;
     // then
     expect(component.isGreaterOrEqualToZero()).toBeFalse();
   });
 
   it('should return true when count number not less than 0', () => {
     // given
-    component.count = 1;
+    component.counter.count = 1;
     // then
     expect(component.isGreaterOrEqualToZero()).toBeTrue();
   });
 
   it('should return false when count number greater than 10', () => {
     // given
-    component.count = 11;
+    component.counter.count = 11;
     // then
     expect(component.isLessOrEqualToTen()).toBeFalse();
   });
 
   it('should return true when count number not greater than 10', () => {
     // given
-    component.count = 9;
+    component.counter.count = 9;
     // then
     expect(component.isLessOrEqualToTen()).toBeTrue();
   });
 
   it('should reset count to 0 when click reset button', () => {
     // given
-    component.count = 2;
+    component.counter.count = 2;
     const resetBtn = fixture.nativeElement.querySelector('[data-test="resetBtn"]');
     // when
     resetBtn.click();
     fixture.detectChanges();
     // then
     const displayCount = fixture.nativeElement.querySelector('[data-test="displayCount"]')
-    expect(component.count).toEqual(0);
+    expect(component.counter.count).toEqual(0);
   });
 });
