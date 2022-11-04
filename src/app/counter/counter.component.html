@@ -4,7 +4,7 @@
     <button data-test="plusBtn" (click)="increase()">+</button>
 </ng-container>
 
-<span data-test="displayCount">number: {{count}}</span>
+<span data-test="displayCount" [ngClass]="{'green': !isGreaterOrEqualToZero()}">number: {{count}}</span>
 
 <ng-container *ngIf="isGreaterOrEqualToZero()">
     <button data-test="subtractBtn" (click)="decrease()">-</button>

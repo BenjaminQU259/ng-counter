@@ -64,4 +64,18 @@ describe('CounterComponent', () => {
     const plusBtn = fixture.nativeElement.querySelector('[data-test="plusBtn"]')
     expect(plusBtn).toBeFalsy();
   });
+
+  it('should return false when count number less than 0', () => {
+    // given
+    component.count = -1;
+    // then
+    expect(component.isGreaterOrEqualToZero()).toBeFalse();
+  });
+
+  it('should return true when count number not less than 0', () => {
+    // given
+    component.count = 1;
+    // then
+    expect(component.isGreaterOrEqualToZero()).toBeTrue();
+  });
 });
