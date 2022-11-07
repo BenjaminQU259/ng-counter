@@ -1,7 +1,15 @@
-<p>counter works!</p>
+<p></p>
 
 <ng-container *ngIf="isLessOrEqualToTen()">
-  <button data-test="plusBtn" (click)="increase()">+</button>
+  <button
+    data-test="plusBtn"
+    (click)="increase()"
+    nz-button
+    nzType="primary"
+    nzShape="circle"
+  >
+    +
+  </button>
 </ng-container>
 
 <span
@@ -11,7 +19,23 @@
 >
 
 <ng-container *ngIf="isGreaterOrEqualToZero()">
-  <button data-test="subtractBtn" (click)="decrease()">-</button>
+  <button
+    data-test="subtractBtn"
+    (click)="decrease()"
+    nz-button
+    nzType="primary"
+    nzShape="circle"
+  >
+    -
+  </button>
 </ng-container>
 
-<button data-test="resetBtn" (click)="reset()">Reset</button>
+<button
+  data-test="resetBtn"
+  (click)="reset()"
+  nz-button
+  nzType="primary"
+  nzDanger
+>
+  Reset
+</button>
